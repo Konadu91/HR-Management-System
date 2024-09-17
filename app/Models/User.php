@@ -22,6 +22,10 @@ class User extends Authenticatable
         'password',
     ];
 
+    
+
+    
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -44,4 +48,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function employee()
+{
+    return $this->hasOne(Employee::class); // Assuming one-to-one relationship
+}
+
+public function isEmployee()
+{
+    return $this->employee !== null; // Returns true if the user has an associated employee
+}
 }
